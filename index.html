@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Babatunde Dallas | Business Intelligence Solution Architect</title>
+  <meta name="description" content="Senior BI Developer & Enterprise Intelligence Architect specializing in ERP/CRM integration and enterprise reporting." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Typography settings
+       I keep all font sizes in one place so I can tune the layout quickly.
+       If anything looks too big/small, I adjust the numbers in :root below. -->
+  <style>
+    :root{
+      /* Font family */
+      --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --font-display: var(--font-sans);
+
+      /* Line heights + weights */
+      --lh-tight: 1.05;
+      --lh-title: 1.12;
+      --lh-body: 1.65;
+
+      --fw-regular: 400;
+      --fw-medium: 500;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+      --fw-extrabold: 800;
+
+      /* NAV */
+      --fs-nav-brand: 16px;
+      --fs-nav-link: 14px;
+
+      /* HERO */
+      --fs-hero-eyebrow: 12px;
+      --fs-hero-headline: 64px;
+      --fs-hero-subhead: 16px;
+
+      /* SECTION HEADERS */
+      --fs-kicker: 12px;
+      --fs-section-title: 44px;
+      --fs-center-title: 42px;
+      --fs-h3: 18px;
+
+      /* BODY */
+      --fs-body-lg: 16px;
+      --fs-body: 15px;
+
+      /* PROJECTS */
+      --fs-proj-label: 12px;
+      --fs-proj-text: 14px;
+
+      /* STATS */
+      --fs-stat-value: 20px;
+      --fs-stat-label: 12px;
+
+      /* CHIPS */
+      --fs-chip: 12px;
+
+      /* CONTACT */
+      --fs-contact-item: 14px;
+      --fs-footer: 13px;
+    }
+
+    body{
+      font-family: var(--font-sans);
+      line-height: var(--lh-body);
+      font-weight: var(--fw-regular);
+    }
+
+    /* NAV */
+    .brand{
+      font-family: var(--font-display);
+      font-size: var(--fs-nav-brand);
+      font-weight: var(--fw-semibold);
+      letter-spacing: .2px;
+    }
+    .nav-links a{
+      font-size: var(--fs-nav-link);
+      font-weight: var(--fw-medium);
+    }
+
+    /* HERO */
+    .eyebrow{
+      font-family: var(--font-sans);
+      font-size: var(--fs-hero-eyebrow);
+      font-weight: var(--fw-semibold);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+    .headline{
+      font-family: var(--font-display);
+      font-size: var(--fs-hero-headline);
+      font-weight: var(--fw-extrabold);
+      line-height: var(--lh-tight);
+      letter-spacing: -0.02em;
+      margin: 10px 0 14px;
+    }
+    .subhead{
+      font-family: var(--font-sans);
+      font-size: var(--fs-hero-subhead);
+      font-weight: var(--fw-regular);
+      line-height: 1.75;
+      max-width: 68ch;
+    }
+
+    /* STATS */
+    .statValue{
+      font-family: var(--font-display);
+      font-size: var(--fs-stat-value);
+      font-weight: var(--fw-bold);
+      line-height: 1.2;
+    }
+    .statLabel{
+      font-family: var(--font-sans);
+      font-size: var(--fs-stat-label);
+      font-weight: var(--fw-regular);
+      line-height: 1.5;
+      opacity: .9;
+    }
+
+    /* SECTION HEADERS */
+    .kicker{
+      font-family: var(--font-sans);
+      font-size: var(--fs-kicker);
+      font-weight: var(--fw-semibold);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+    .bigTitle{
+      font-family: var(--font-display);
+      font-size: var(--fs-section-title);
+      font-weight: var(--fw-extrabold);
+      line-height: var(--lh-title);
+      letter-spacing: -0.02em;
+      margin: 10px 0 14px;
+    }
+    .centerTitle{
+      font-family: var(--font-display);
+      font-size: var(--fs-center-title);
+      font-weight: var(--fw-extrabold);
+      line-height: var(--lh-title);
+      letter-spacing: -0.02em;
+      margin: 10px 0 14px;
+    }
+
+    /* BODY */
+    .bodyLarge{
+      font-family: var(--font-sans);
+      font-size: var(--fs-body-lg);
+      font-weight: var(--fw-regular);
+      line-height: 1.85;
+    }
+
+    /* Card headers */
+    h3{
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-semibold);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin: 0 0 10px;
+    }
+
+    /* About right-side cards */
+    .valueTitle{
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-semibold);
+      line-height: 1.25;
+    }
+    .valueText{
+      font-family: var(--font-sans);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-regular);
+      line-height: 1.7;
+      opacity: .92;
+    }
+
+    /* Expertise bullets */
+    .capList li{
+      font-family: var(--font-sans);
+      font-size: var(--fs-body);
+      line-height: 1.7;
+    }
+
+    /* Projects */
+    .projLabel{
+      font-family: var(--font-sans);
+      font-size: var(--fs-proj-label);
+      font-weight: var(--fw-semibold);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+    .projText{
+      font-family: var(--font-sans);
+      font-size: var(--fs-proj-text);
+      line-height: 1.75;
+    }
+
+    /* Chips */
+    .chip{
+      font-family: var(--font-sans);
+      font-size: var(--fs-chip);
+      font-weight: var(--fw-medium);
+      line-height: 1.2;
+    }
+
+    /* Contact + Footer */
+    .contactItem{
+      font-family: var(--font-sans);
+      font-size: var(--fs-contact-item);
+      line-height: 1.6;
+    }
+    .footerCenter{
+      font-family: var(--font-sans);
+      font-size: var(--fs-footer);
+      line-height: 1.6;
+      opacity: .9;
+    }
+
+    /* Responsive typography (optional) */
+    @media (max-width: 1024px){
+      :root{ --fs-hero-headline: 52px; }
+    }
+    @media (max-width: 640px){
+      :root{
+        --fs-hero-headline: 40px;
+        --fs-section-title: 34px;
+        --fs-center-title: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav container">
+      <!-- Headshot file name must match exactly -->
+      <a class="brandLink" href="#top" aria-label="Go to top">
+        <span class="brandAvatar">
+          <img src="assets/img/headshot --.jpg" alt="Babatunde Dallas headshot" />
+        </span>
+        <span class="brand">Babatunde <span>Dallas</span></span>
+      </a>
+
+      <div class="nav-links" role="navigation" aria-label="Primary">
+        <a href="#about" data-nav="about">About</a>
+        <a href="#expertise" data-nav="expertise">Expertise</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#certification" data-nav="certification">Certification</a>
+        <a href="#aspirations" data-nav="aspirations">Aspirations</a>
+      </div>
+
+      <a class="btn primary" href="#contact">Get in Touch</a>
+    </nav>
+  </header>
+
+  <main class="container" id="top">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="heroGrid">
+        <div class="heroLeft">
+          <div class="eyebrow">ENTERPRISE BUSINESS INTELLIGENCE SOLUTION ARCHITECT</div>
+
+          <h1 class="headline">
+            Designing Enterprise
+            Intelligence Systems That Drive
+            <span class="accent">Decision-Making</span>
+          </h1>
+
+          <p class="subhead">
+            Senior BI Developer & Data Architect helping organizations eliminate revenue leakage,
+            streamline operations, and build scalable analytics ecosystems. I design modern data engineering solutions,
+            Lakehouse architectures, ERP integrations, and enterprise reporting platforms that deliver strategic insights and operational clarity.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">View My Work <span class="arrow">→</span></a>
+            <a class="btn ghost" href="assets/docs/Babatunde-Dallas-Resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/babatundedallas" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          </div>
+
+          <div class="stats" aria-label="Highlights">
+            <div class="stat">
+              <div class="statValue">20+</div>
+              <div class="statLabel">Years of Professional Working Experience</div>
+            </div>
+            <div class="stat">
+              <div class="statValue">8+</div>
+              <div class="statLabel">Years in Enterprise BI & Data Engineering</div>
+            </div>
+            <div class="stat">
+              <div class="statValue">FY24/25</div>
+              <div class="statLabel">Microsoft Fabric Community: Super User</div>
+            </div>
+            <div class="stat">
+              <div class="statValue">2024 Hero</div>
+              <div class="statLabel">Community Impact: Global Power Platform</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="heroRight" aria-label="Profile">
+          <div class="profileCard">
+            <div class="profileImg">
+              <img src="assets/img/headshot.jpg" alt="Babatunde Dallas portrait" />
+            </div>
+            <div class="profileMeta">
+              <div class="profileName">Babatunde Dallas</div>
+              <div class="profileRole">M.S Management Information Systems</div>
+              <div class="profileTags">
+                <span class="chip">Change Management</span>
+                <span class="chip">AI & Analytics Innovation</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="sectionDivider" aria-hidden="true"></div>
+    </section>
+
+    <div class="heroBottomSpacer" aria-hidden="true"></div>
+
+    <!-- ABOUT -->
+    <section class="section sectionNoTopBorder" id="about">
+      <div class="kicker">A B O U T</div>
+
+      <div class="split">
+        <div class="split-left">
+          <h2 class="bigTitle">Enterprise Intelligence, <br/>Engineered with Purpose</h2>
+
+          <p class="bodyLarge">
+            With over 8 years of dedicated enterprise analytics experience and two decades of cross-functional business
+            leadership, I architect intelligence systems that transform how organizations make decisions.
+          </p>
+
+          <p class="bodyLarge">
+            My work spans manufacturing, logistics, and healthcare industries where data precision isn't optional, it's operational.
+            I've worked on ERP implementation projects with Dynamics 365 Business Central, Salesforce integration,
+            and Lakehouse Medallion architectures that serve as the backbone of enterprise reporting.
+          </p>
+
+          <p class="bodyLarge">
+            I collaborate with C-suite executives and cross-functional stakeholders to align analytics strategy
+            with business outcomes—decision-making infrastructure built on data governance and enterprise semantic modeling.
+          </p>
+        </div>
+
+        <div class="split-right">
+          <div class="valueCard">
+            <div class="valueTitle">Architecture-First Approach</div>
+            <div class="valueText">Every engagement starts with scalable system design.</div>
+          </div>
+
+          <div class="valueCard">
+            <div class="valueTitle">Cross-Industry Depth</div>
+            <div class="valueText">Manufacturing, logistics, and healthcare domains that demand precision.</div>
+          </div>
+
+          <div class="valueCard">
+            <div class="valueTitle">Executive Collaboration</div>
+            <div class="valueText">Direct partnership with leadership to shape analytics roadmaps.</div>
+          </div>
+
+          <div class="valueCard">
+            <div class="valueTitle">Governance & Semantics</div>
+            <div class="valueText">Enterprise semantic models and data governance as foundational pillars.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sectionDivider" aria-hidden="true"></div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section class="section sectionNoTopBorder" id="expertise">
+      <div class="kicker center">CORE EXPERTISE</div>
+      <h2 class="centerTitle">Full-Spectrum Enterprise <br/>Analytics Capability</h2>
+
+      <div class="capGrid">
+        <div class="capCard">
+          <div class="capIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 19V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 19V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 19V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M20 19V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Enterprise BI & Analytics</h3>
+          <ul class="capList">
+            <li>Power BI</li>
+            <li>Executive Dashboards</li>
+            <li>Data Storytelling</li>
+            <li>KPI Design</li>
+          </ul>
+        </div>
+
+        <div class="capCard">
+          <div class="capIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <ellipse cx="12" cy="6" rx="7" ry="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Data Engineering & Lakehouse</h3>
+          <ul class="capList">
+            <li>Microsoft Fabric</li>
+            <li>ETL/ELT</li>
+            <li>Medallion Architecture</li>
+            <li>Semantic Models</li>
+          </ul>
+        </div>
+
+        <div class="capCard">
+          <div class="capIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 10h16" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 10v9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Solution Architecture</h3>
+          <ul class="capList">
+            <li>ERP Integrations</li>
+            <li>Salesforce Data Mapping</li>
+            <li>System Design</li>
+            <li>Scalability & Governance</li>
+          </ul>
+        </div>
+
+        <div class="capCard">
+          <div class="capIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M16 11a4 4 0 1 0-8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 20c1.7-3 4.5-5 8-5s6.3 2 8 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 8a3 3 0 1 0-6 0" opacity=".5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Leadership & Strategy</h3>
+          <ul class="capList">
+            <li>Stakeholder Alignment</li>
+            <li>Roadmapping</li>
+            <li>Requirements Shaping</li>
+            <li>BI Adoption & Training</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sectionDivider" aria-hidden="true"></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section sectionNoTopBorder" id="projects">
+      <div class="kicker">FEATURED PROJECTS</div>
+      <h2 class="bigTitle">Enterprise Solutions, <br/>Measurable Impact</h2>
+
+           <a class="projCard" href="https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/Trucking-Operations-Analytics-From-Data-to-Decisions/td-p/4994393"
+         target="_blank" rel="noreferrer">
+        <div class="projTop">
+          <h3>Trucking Operations Analytics - From Data to Decisions                    (Feb., 2026) </h3>
+          <div class="projArrow">↗</div>
+        </div>
+
+        <div class="projGrid">
+          <div>
+            <div class="projLabel">CHALLENGE</div>
+            <p class="projText">
+              Siloed operational data prevented leadership from gaining a unified view of organizational performance.
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">SOLUTION</div>
+            <p class="projText">
+              Designed a centralized enterprise reporting platform built on Microsoft Fabric Lakehouse architecture with cross-department data integration, governance frameworks, and executive KPI layers.
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">OUTCOME</div>
+            <p class="projText">
+             Unified enterprise intelligence across 5+ departments with real-time executive dashboards and governed data access.
+            </p>
+
+            <div class="chipRow">
+              <span class="chip">Microsoft Fabric</span>
+              <span class="chip">Medallion Architecture</span>
+              <span class="chip">Dataflow Gen2</span>
+              <span class="chip">R Programming Language</span>
+              </div>
+          </div>
+        </div>
+      </a>
+      
+ <a class="projCard"
+         href="https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/Environmental-Emissions-Dashboard-EPA-gov/m-p/4899094#M15440"
+         target="_blank" rel="noreferrer">
+        <div class="projTop">
+          <h3>Environmental Emissions Dashboard - EPA.gov                    (Dec., 2025) </h3>
+          <div class="projArrow">↗</div>
+        </div>
+
+        <div class="projGrid">
+          <div>
+            <div class="projLabel">CHALLENGE</div>
+            <p class="projText">
+              Agencies and utilities often struggle to interpret large, complex environmental datasets in a way that drives decision‑making.
+              The challenge is to transform eGRID2022 emissions data into an intuitive, actionable monitoring tool for both technical and non‑technical users.
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">SOLUTION</div>
+            <p class="projText">
+             The report integrates KPI summaries, plant‑level insights, generator details, and visual breakdowns of emissions and generation output. 
+             It streamlines environmental monitoring and supports AI evaluation workflows for emissions management.
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">OUTCOME</div>
+            <p class="projText">
+             The dashboard enables regulators, analysts, and facility operators to identify emission patterns, compliance risks, and operational inefficiencies. 
+              Users gain a clearer understanding of NOx performance across regions and facility types, improving transparency and data‑driven decision‑making. 
+              </p>
+
+            <div class="chipRow">
+              <span class="chip">Power BI</span>
+              <span class="chip">Data Factory</span>
+              <span class="chip">SQL Server</span>
+              <span class="chip">DAX</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      
+      <a class="projCard"
+         href="https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/Social-Capital-Analytics-Challenge-with-Microsoft-Fabric-Data/m-p/3972502"
+         target="_blank" rel="noreferrer">
+        <div class="projTop">
+          <h3>Social Capital Analytics                                                      (June, 2024)</h3>
+          <div class="projArrow">↗</div>
+        </div>
+
+        <div class="projGrid">
+          <div>
+            <div class="projLabel">CHALLENGE</div>
+            <p class="projText">
+              The challenge is to transform the massive Meta Social Capital dataset, built from 21 billion friendship connections into insights that reveal where 
+              economic connectedness is strong or weak. Policymakers need clear, data‑driven guidance to understand these disparities and address them effectively.
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">SOLUTION</div>
+            <p class="projText">
+              Our team built an end‑to‑end analytics framework using Microsoft Fabric, supported by Tableau, SAS Viya, and Generative AI, to process and model the 
+              Social Capital dataset at scale. Through machine learning and statistical analysis, we identified patterns in economic connectedness across states, 
+              counties, and educational environments. 
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">OUTCOME</div>
+            <p class="projText">
+              The project equip decision‑makers with precise, evidence‑based insights that highlight social capital gaps and opportunities for intervention. 
+              The solution lays the foundation for more resilient, connected, and opportunity‑rich local ecosystems.
+            </p>
+
+            <div class="chipRow">
+              <span class="chip">Power BI</span>
+               <span class="chip">Tableau</span>
+              <span class="chip">Python</span>
+              <span class="chip">SAS</span>
+              
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a class="projCard" href="https://www.youtube.com/watch?v=bOBELtv9Ix4" target="_blank" rel="noreferrer">
+        <div class="projTop">
+          <h3>Solestyle Wonderland App                                     (Jan., 2024) </h3>
+          <div class="projArrow">↗</div>
+        </div>
+
+        <div class="projGrid">
+          <div>
+            <div class="projLabel">CHALLENGE</div>
+            <p class="projText">
+              Manual enterprise workflows created bottlenecks and inconsistencies across business processes.
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">SOLUTION</div>
+            <p class="projText">
+              Developed a Power Platform solution for enterprise workflow automation, streamlining operations and reducing manual touchpoints.
+            </p>
+          </div>
+
+          <div>
+            <div class="projLabel">OUTCOME</div>
+            <p class="projText">
+              Automated key business workflows, improving process efficiency and data consistency across the organization.
+            </p>
+
+            <div class="chipRow">
+               <span class="chip">Dynamics 365</span>
+              <span class="chip">Power Platform</span>
+              <span class="chip">Power Automate</span>
+              <span class="chip">Dataverse</span>
+              <span class="chip">SharePoint</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <div class="sectionDivider" aria-hidden="true"></div>
+    </section>
+
+    <!-- CERTIFICATION -->
+    <section class="section sectionNoTopBorder" id="certification">
+      <div class="kicker center">CERTIFICATIONS</div>
+      <h2 class="centerTitle">Validated Expertise</h2>
+
+      <div class="certGrid">
+        <div class="certCard">
+          <div class="certIcon">🏅</div>
+          <div class="certCode">DP-203</div>
+          <div class="certTitle">Microsoft Azure Data Engineer Associate</div>
+          <div class="certMeta">Microsoft</div>
+        </div>
+
+        <div class="certCard">
+          <div class="certIcon">🏅</div>
+          <div class="certCode">DP-600</div>
+          <div class="certTitle">Microsoft Fabric Analytics Engineer Associate</div>
+          <div class="certMeta">Microsoft</div>
+        </div>
+
+        <div class="certCard">
+          <div class="certIcon">🎓</div>
+          <div class="certCode">B-PMP</div>
+          <div class="certTitle">Business Project Management Professional</div>
+          <div class="certMeta">University of Memphis</div>
+        </div>
+      </div>
+
+      <div class="stackBlock">
+        <div class="kicker center stackKicker">TECHNOLOGY STACK</div>
+        <h2 class="centerTitle stackTitle">Tools of the Trade</h2>
+
+        <div class="stackChips">
+          <span class="chip">Azure</span>
+          <span class="chip">Microsoft Fabric</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">SQL Server</span>
+          <span class="chip">Dynamics 365</span>
+          <span class="chip">Salesforce</span>
+          <span class="chip">Power Platform</span>
+          <span class="chip">Copilot Studio</span>
+          <span class="chip">DAX</span>
+          <span class="chip">Python</span>
+          <span class="chip">Dataverse</span>
+          <span class="chip">Azure Data Factory</span>
+        </div>
+      </div>
+
+      <div class="sectionDivider" aria-hidden="true"></div>
+    </section>
+
+    <!-- ASPIRATIONS -->
+    <section class="section sectionNoTopBorder" id="aspirations">
+      <div class="kicker">THOUGHT LEADERSHIP</div>
+      <h2 class="bigTitle">Perspectives on <br/>Enterprise Intelligence</h2>
+
+      <div class="thoughtGrid">
+        <div class="thoughtCard">
+          <div class="valueTitle">Architecture Over Dashboards</div>
+          <div class="valueText">
+            Dashboards are outputs, not outcomes. True enterprise intelligence starts with architecture,
+            data governance, semantic modeling, and scalable pipelines that make dashboards inevitable rather than improvised.
+          </div>
+        </div>
+
+        <div class="thoughtCard">
+          <div class="valueTitle">Data Governance as Strategy</div>
+          <div class="valueText">
+            Governance isn't bureaucracy, it's the foundation that makes analytics trustworthy.
+            Without governance, every report is a guess dressed in a chart.
+          </div>
+        </div>
+
+        <div class="thoughtCard">
+          <div class="valueTitle">The Enterprise Intelligence Mindset</div>
+          <div class="valueText">
+            Moving from reactive reporting to proactive intelligence requires a fundamental shift in how organizations think
+            about data from cost center to strategic asset.
+          </div>
+        </div>
+
+        <div class="thoughtCard">
+          <div class="valueTitle">Scalable Analytics Ecosystems</div>
+          <div class="valueText">
+            The most valuable analytics platforms aren't built for today's questions. They're architected to answer questions
+            the organization hasn't thought to ask yet.
+          </div>
+        </div>
+      </div>
+
+      <div class="aspirationsDivider" aria-hidden="true"></div>
+
+      <div class="visionWrap">
+        <div class="visionIcon">✨</div>
+        <div class="kicker center">FUTURE VISION</div>
+        <h2 class="centerTitle">
+          Building the Next Generation of <span class="accent">Enterprise <br/>Intelligence Platforms</span>
+        </h2>
+
+        <p class="visionText">
+          I'm evolving beyond implementation toward building scalable analytics products and advisory services to
+          help organizations design intelligence platforms that compound value over time. The future of enterprise analytics
+          isn't more dashboards, it's architected ecosystems that make better decisions inevitable.
+        </p>
+      </div>
+
+      <div class="sectionDivider" aria-hidden="true"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section sectionNoTopBorder" id="contact">
+      <div class="kicker">CONTACT</div>
+      <h2 class="bigTitle">Let's Build Something <br/>Extraordinary</h2>
+
+      <div class="contactSplit">
+        <div class="contactLeft">
+          <p class="bodyLarge">
+            Whether you're looking for an enterprise analytics architect, a strategic BI advisor, or a partner to design your next
+            intelligence platform, I'd love to connect.
+          </p>
+
+          <div class="contactLinks">
+            <a class="contactItem" href="mailto:babatundedallas@outlook.com">
+              <span class="contactIcon">✉️</span> babatundedallas@outlook.com
+            </a>
+            <div class="contactItem">
+              <span class="contactIcon">📍</span> Dallas, TX
+            </div>
+            <a class="contactItem" href="https://www.linkedin.com/in/babatundedallas" target="_blank" rel="noreferrer">
+              <span class="contactIcon">in</span> Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footerCenter">
+        © <span id="year"></span> Babatunde Dallas | Enterprise Intelligence Architect
+      </footer>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
